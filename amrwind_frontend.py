@@ -516,10 +516,10 @@ class MyApp(tkyg.App, object):
                     probekeys = [k for k in allkeys if k.startswith(prefix) ]
                     # First process the type
                     probetype = tkyg.getdictval(inputdict, prefix+'type', None)
-                    l = lmap[probetype.lower()]
                     if probetype is None:
                         print("ERROR: %s is not found!"%prefix+'type')
                         continue
+                    l = lmap[probetype.lower()]
                     probedict[dictkeypre+'name']  = name
                     probedict[dictkeypre+'outputto']  = pname
                     probedict[dictkeypre+'type']  = probetype

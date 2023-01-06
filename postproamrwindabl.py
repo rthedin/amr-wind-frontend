@@ -308,7 +308,7 @@ def printReport(ncdat, heights, avgt, verbose=True):
     """
     Print out a report of the ABL statistics at given heights
     """
-    # Make heights an array is a single value is given
+    # Make heights an array if a single value is given
     heights = [heights] if isinstance(heights,(int,float)) else heights
 
     # Dict which holds all of the output variables
