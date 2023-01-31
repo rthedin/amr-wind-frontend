@@ -2452,7 +2452,6 @@ popupwindow:
         label:      Plot wind & N arrows
         inputtype:  bool
         defaultval: True
-<<<<<<< HEAD
       - name:       plot_sampleprobes_style
         frame:      plot_frameoverall
         label:      Sample probe styles
