@@ -299,7 +299,13 @@ def refine_createZoneForTurbine(self, turbname, turbinedict, zonedict,
 
     # Get the zone options
     units   = getdictval(zonedict['options'], 'units', defaultopt).lower()
-    orient  = getdictval(zonedict['options'], 'orientation', defaultopt).lower()
+    orient  = getdictval(zonedict['options'], 'orientation', defaultopt)
+    # Check if string or actual direction passed as orientation
+    try:
+        orient = float(orient)
+    except ValueError:
+        orient = orient.lower()
+
     # Set scale and orientation axes
     scale = turbD if units=='diameter' else 1.0
     if orient == 'x':
@@ -312,6 +318,8 @@ def refine_createZoneForTurbine(self, turbname, turbinedict, zonedict,
         vert        = np.array([0.0, 0.0, 1.0])        
     elif orient == 'nacdir':
         streamwise, crossstream, vert = self.convert_winddir_to_xy(turbyaw)
+    elif isinstance(orient,(float,int)):
+        streamwise, crossstream, vert = self.convert_winddir_to_xy(-90-orient)
     else:  # Use the wind direction
         streamwise, crossstream, vert = self.convert_winddir_to_xy(winddir)
         
