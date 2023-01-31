@@ -2411,7 +2411,7 @@ popupwindow:
     title:        Plot domain     # optional
     loadonstart:  True            # optional
     width:        350
-    height:       680
+    height:       720
     frames:
       - name:       plot_frameoverall
         title:      Plot settings
@@ -2452,6 +2452,7 @@ popupwindow:
         label:      Plot wind & N arrows
         inputtype:  bool
         defaultval: True
+<<<<<<< HEAD
       - name:       plot_sampleprobes_style
         frame:      plot_frameoverall
         label:      Sample probe styles
@@ -2470,6 +2471,11 @@ popupwindow:
         inputtype:  str
         defaultval: "{'frameon':True, 'numpoints':1, 'fontsize':10, 'loc':'lower right'}"
         visible:    False
+      - name:       plot_florissoln
+        frame:      plot_frameoverall
+        label:      Plot FLORIS wake solution
+        inputtype:  bool
+        defaultval: False
       - name:       plot_sampleprobes
         frame:      plot_framesampleprobes
         label:      #Plot sample probes
