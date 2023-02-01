@@ -570,7 +570,7 @@ def extractkeystartingwith(d, key, removeprefix=False):
     return returndict
 
 
-def turbines_createAllTurbines(self):
+def turbines_createAllTurbines(self, updatefast=True, docopy=True):
     """
     Create all of the turbines from csv input
     """
@@ -694,8 +694,8 @@ def turbines_createAllTurbines(self):
         # Get all of the turbine model defaults
         turbdict = self.turbinemodels_applyturbinemodel(turbdict,
                                                         turbtype,
-                                                        docopy=True, 
-                                                        updatefast=True)
+                                                        docopy=docopy, 
+                                                        updatefast=updatefast)
 
         # Set any AMR-Wind options
         AMRoptions = extractkeystartingwith(turb['options'], 'AMRparam_', removeprefix=True)
